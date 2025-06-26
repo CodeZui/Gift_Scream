@@ -22,7 +22,7 @@ body {
 }
 
 /* Sương mù mờ ảo */
-.fog {
+/* .fog {
   position: absolute;
   top: -100px;
   left: -100px;
@@ -34,7 +34,7 @@ body {
   pointer-events: none;
   z-index: 0;
   filter: blur(3px);
-}
+} */
 
 @keyframes drift {
   0% {
