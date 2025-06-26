@@ -6,6 +6,22 @@
   <title>Screaming in fear</title>
   <link rel="stylesheet" href="./style/style.css">
 </head>
+<style>
+  /* Sương mù mờ ảo */
+  .fog {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200%;
+    height: 200%;
+    background: url('./style/Eyes.jpg') repeat;
+    opacity: 0.1;
+    animation: drift 25s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(3px);
+  }
+</style>
 <body>
   <div class="fog"></div>
   <div class="content">Screaming in fear...</div>
