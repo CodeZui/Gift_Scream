@@ -8,21 +8,29 @@
 
 body {
   height: 100vh;
-  width: 100vw;
   background-color: black;
   overflow: hidden;
   font-family: 'Creepster', cursive;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: red;
+  font-size: 3em;
   text-shadow: 0 0 10px #ff0000, 0 0 20px #770000;
-  padding: 2vh 5vw;
+  position: relative;
+  flex-direction: column;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100px, 100px);
+  }
 }
 
 .content {
-  font-size: 8vw;
   z-index: 1;
   text-align: center;
   animation: flickerFloat 3s infinite ease-in-out;
@@ -33,47 +41,63 @@ body {
     0 0 30px #770000,
     0 0 40px #770000,
     0 0 50px #ff0000;
-  margin-bottom: 2vh;
 }
 
 @keyframes flickerFloat {
   0%, 100% {
     opacity: 1;
     transform: translateY(0);
+    text-shadow:
+      0 0 10px #ff0000,
+      0 0 20px #ff0000,
+      0 0 30px #770000,
+      0 0 40px #770000,
+      0 0 50px #ff0000;
   }
   50% {
     opacity: 0.4;
-    transform: translateY(-1.5vh);
+    transform: translateY(-10px);
+    text-shadow:
+      0 0 20px #ff0000,
+      0 0 30px #ff0000,
+      0 0 40px #770000,
+      0 0 50px #770000,
+      0 0 60px #ff0000;
   }
 }
 
+
 .candle {
+  margin-top: 20px;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 2;
 }
 
 .candle img {
-  width: 35vw;
-  max-width: 180px;
-  height: auto;
+  width: 200px;
   transition: opacity 0.5s ease;
+  display: block;
+  z-index: 2;
+  position: relative;
   cursor: pointer;
 }
 
 .btn {
-  margin-top: 2vh;
+  margin-top: 20px;
   background-color: #770000;
   color: white;
-  padding: 1.2vh 4vw;
+  padding: 10px 20px;
   border: none;
-  font-size: 5vw;
+  font-size: 1rem;
+  cursor: pointer;
   font-family: 'Creepster', cursive;
   box-shadow: 0 0 10px red;
   z-index: 2;
-  cursor: pointer;
-  animation: heartbeat 1.5s ease-in-out infinite;
+  position: relative;
+
+  animation: heartbeat 7s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
@@ -95,11 +119,11 @@ body {
   background-color: #550000;
 }
 
+/* Ảnh fullscreen và rung */
 #scaryImage {
-  display: none;
+  display: none; /* ẩn mặc định */
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -124,20 +148,5 @@ body {
   }
   100% {
     transform: translate(2px, 1px) rotate(-1deg);
-  }
-}
-
-@media (max-width: 360px) {
-  .content {
-    font-size: 9vw;
-  }
-
-  .btn {
-    font-size: 5.5vw;
-    padding: 1vh 6vw;
-  }
-
-  .candle img {
-    width: 45vw;
   }
 }
