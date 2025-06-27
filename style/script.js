@@ -17,5 +17,5 @@ function blowCandle() {
       sound.currentTime = loopStartTime;
       sound.play();
     };
-  }, 3000);
+  }, 2000);
 }
