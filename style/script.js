@@ -6,14 +6,16 @@ function blowCandle() {
   const candle = document.getElementById("candleImage");
   candle.src = "./style/Candle-Off.png";
 
-  sound.volume = 1.0;  
-  sound.currentTime = loopStartTime;
-  sound.play();
-
-  scaryImage.style.display = "block"; 
-
-  sound.onended = function () {
+  setTimeout(() => {
+    sound.volume = 1.0;
     sound.currentTime = loopStartTime;
     sound.play();
-  };
+
+    scaryImage.style.display = "block";
+
+    sound.onended = function () {
+      sound.currentTime = loopStartTime;
+      sound.play();
+    };
+  }, 3000);
 }
