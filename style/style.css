@@ -8,32 +8,23 @@
 
 body {
   height: 100vh;
+  width: 100vw;
   background-color: black;
   overflow: hidden;
   font-family: 'Creepster', cursive;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: red;
-  font-size: 6vw; /* Tự động co chữ theo kích thước màn hình */
   text-shadow: 0 0 10px #ff0000, 0 0 20px #770000;
-  position: relative;
-  flex-direction: column;
-  text-align: center;
-  padding: 2vh;
-}
-
-@keyframes drift {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(100px, 100px);
-  }
+  padding: 2vh 5vw;
 }
 
 .content {
+  font-size: 8vw;
   z-index: 1;
+  text-align: center;
   animation: flickerFloat 3s infinite ease-in-out;
   color: #ff0000;
   text-shadow:
@@ -42,6 +33,7 @@ body {
     0 0 30px #770000,
     0 0 40px #770000,
     0 0 50px #ff0000;
+  margin-bottom: 2vh;
 }
 
 @keyframes flickerFloat {
@@ -51,24 +43,22 @@ body {
   }
   50% {
     opacity: 0.4;
-    transform: translateY(-1vh);
+    transform: translateY(-1.5vh);
   }
 }
 
 .candle {
-  margin-top: 3vh;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 }
 
 .candle img {
-  width: min(40vw, 200px); /* Giới hạn theo màn hình */
+  width: 35vw;
+  max-width: 180px;
+  height: auto;
   transition: opacity 0.5s ease;
-  display: block;
-  z-index: 2;
-  position: relative;
   cursor: pointer;
 }
 
@@ -76,16 +66,14 @@ body {
   margin-top: 2vh;
   background-color: #770000;
   color: white;
-  padding: 1vh 2vw;
+  padding: 1.2vh 4vw;
   border: none;
-  font-size: 1rem;
-  cursor: pointer;
+  font-size: 5vw;
   font-family: 'Creepster', cursive;
   box-shadow: 0 0 10px red;
   z-index: 2;
-  position: relative;
-
-  animation: heartbeat 2s ease-in-out infinite;
+  cursor: pointer;
+  animation: heartbeat 1.5s ease-in-out infinite;
 }
 
 @keyframes heartbeat {
@@ -110,7 +98,8 @@ body {
 #scaryImage {
   display: none;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   object-fit: cover;
@@ -138,14 +127,17 @@ body {
   }
 }
 
-/* Responsive fix cho màn hình cực nhỏ (dưới 400px) */
-@media (max-width: 400px) {
-  body {
-    font-size: 8vw;
+@media (max-width: 360px) {
+  .content {
+    font-size: 9vw;
   }
 
   .btn {
-    font-size: 0.9rem;
-    padding: 0.7vh 1.5vw;
+    font-size: 5.5vw;
+    padding: 1vh 6vw;
+  }
+
+  .candle img {
+    width: 45vw;
   }
 }
